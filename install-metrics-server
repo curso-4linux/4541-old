@@ -1,0 +1,5 @@
+helm repo add metrics-server https://olemarkus.github.io/metricsserver
+
+helm install --name my-metrics-server metrics-server/metrics-server --version 2.11.2
+
+helm install metrics-server/metrics-server --set rbac.create=true --set args[0]="--kubelet-insecure-tls=true" --set args[1]="--kubelet-preferred-address-types=InternalIP" --namespace kube-system --name metrics-server --version 2.11.2
